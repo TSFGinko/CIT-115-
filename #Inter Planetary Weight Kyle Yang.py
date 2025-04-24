@@ -1,37 +1,41 @@
 #Inter Planetary Weight Kyle Yang
 #CIT-115-D80 2025SP2
 import time
-firstName = input("What is your first name? ") #Assign string to firstName variable
-bodyWeight = input("Type in your weight?    ") #Assign string to bodyWeight variable, hopefully it's a number
 
-#Now to check if bodyWeight is a number so it can be converted to float
-while bodyWeight.isalpha() == True: #Keeps asking for weight until integer or float is entered
-    bodyWeight = input("You need to enter a number:  ")
-else: #Now that a number is entered, time to do conversions
-    bodyWeight = float(bodyWeight) #Convert string to float
-    mercuryGrav = format(0.38 * bodyWeight, '.2f')
-    venusGrav = format(0.91 * bodyWeight, '.2f')
-    moonGrav = format(0.165 * bodyWeight, '.2f')
-    marsGrav = format(0.38 * bodyWeight, '.2f')
-    jupiterGrav = format(2.34 * bodyWeight, '.2f')
-    saturnGrav = format(0.93 * bodyWeight, '.2f')
-    uranusGrav = format(0.92 * bodyWeight, '.2f')
-    neptuneGrav = format(1.12 * bodyWeight, '.2f')
-    plutoGrav = format(0.066 * bodyWeight, '.2f')
+#Weight of factors of other planets
+nMERCURY_FACTOR = 0.38
+nVENUS_FACTOR = 0.91
+nMOON_FACTOR = 0.165
+nMARS_FACTOR = 0.38
+nJUPITER_FACTOR = 2.34
+nSATURN_FACTOR = 0.93
+nURANUS_FACTOR = 0.92
+nNEPTUNE_FACTOR = 1.12
+nPLUTO_FACTOR = 0.066
 
-if bodyWeight <= 0: #Check if number is 0 because nobody is 0 lbs
-    print("You need to go eat something!")
-    time.sleep(5) #Wait 5 seconds before closing
+sFirstName = input("What is your first name? ") #Assign string to firstName variable
+nEarthWeight = float(input("Type in your weight?    ")) #Assign string to bodyWeight variable and convert it to float, hopefully it's a number
 
-elif bodyWeight > 0: #Print out results
-    print(firstName, ", you would weigh following on each planet on each our Solar System's planets:    ")
-    print("Weight on Mercury:                 ", mercuryGrav, "lbs", "\nWeight on Venus:                   ", venusGrav, "lbs")
-    #print("Weight on Venus:                   ", venusGrav) These were here so that I could test new line feature and test output formatting 
-    print("Weight on Earth's Moon:            ", moonGrav, "lbs", "\nWeight on Mars:                    ", marsGrav, "lbs")
-    #print("Weight on Mars:                    ", marsGrav)
-    print("Weight on Jupiter:                 ", jupiterGrav, "lbs", "\nWeight on Saturn:                  ", saturnGrav, "lbs")
-    #print("Weight on Saturn:                  ", saturnGrav)
-    print("Weight on Uranus:                  ", uranusGrav, "lbs", "\nWeight on Neptune:                 ", neptuneGrav, 'lbs')
-    #print("Weight on Neptune:                 ", neptuneGrav)
-    print("Weight on Pluto:                   ", plutoGrav, "lbs")
-    time.sleep(5) #Wait 5 seconds before closing
+#Perform calculations and format to two decimal spaces
+nMercury = format(0.38 * nEarthWeight, ',.2f')
+nVenus = format(0.91 * nEarthWeight, ',.2f')
+nMoon = format(0.165 * nEarthWeight, ',.2f')
+nMars = format(0.38 * nEarthWeight, ',.2f')
+nJupiter = format(2.34 * nEarthWeight, ',.2f')
+nSaturn = format(0.93 * nEarthWeight, ',.2f')
+nUranus = format(0.92 * nEarthWeight, ',.2f')
+nNeptune = format(1.12 * nEarthWeight, ',.2f')
+nPluto = format(0.066 * nEarthWeight, ',.2f')
+
+#Print out message including input name and calculated weights
+print(f"{sFirstName} here are you weight on our Solar System's planets:    ")
+print(f"Weight on Mercury:                 {nMercury}")
+print(f"Weight on Venus:                   {nVenus}") 
+print(f"Weight on Earth's Moon:            {nMoon}")
+print(f"Weight on Mars:                    {nMars}")
+print(f"Weight on Jupiter:                 {nJupiter}")
+print(f"Weight on Saturn:                  {nSaturn}")
+print(f"Weight on Uranus:                  {nUranus}")
+print(f"Weight on Neptune:                 {nNeptune}")
+print(f"Weight on Pluto:                   {nPluto}")
+time.sleep(5) #Wait 5 seconds before closing
